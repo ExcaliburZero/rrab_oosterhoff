@@ -9,7 +9,8 @@ def main():
 
     save_results(results)
 
-def get_light_curves():
+def get_light_curves(curves_dir):
+
     pass
 
 def save_results(results):
@@ -51,7 +52,7 @@ def iterative_std_filter(curve, std_threshold, iterations):
         filtered = curve[np.logical_and(
             curve[:,1] > std_bel,
             curve[:,1] < std_abv
-        ]
+        )]
 
         return iterative_std_filter(filtered, std_threshold, iterations - 1)
 

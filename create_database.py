@@ -13,11 +13,10 @@ def main():
     cur = con.cursor()
 
     create_table(cur, "Surveys", [
-        "id TEXT",
         "survey TEXT",
         "cluster TEXT",
         "oost TEXT",
-        "PRIMARY KEY(id, survey, cluster)"
+        "PRIMARY KEY(survey, cluster)"
     ])
 
     create_table(cur, "LightCurves", [
@@ -26,7 +25,7 @@ def main():
         "cluster TEXT",
         "band TEXT",
         "curve BLOB",
-        "PRIMARY KEY(id, survey, cluster)"
+        "PRIMARY KEY(id, survey, cluster, band)"
     ])
 
     create_table(cur, "Stars", [
@@ -34,6 +33,8 @@ def main():
         "survey TEXT",
         "cluster TEXT",
         "period FLOAT",
+        "amplitude_I FLOAT",
+        "amplitude_V FLOAT",
         "PRIMARY KEY(id, survey, cluster)"
     ])
 
