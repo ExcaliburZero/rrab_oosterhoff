@@ -34,4 +34,4 @@ def pack_curve(curve):
     return sqlite3.Binary(pickle.dumps(curve, protocol=2))
 
 def unpack_curve(curve_pickle):
-    return pickle.loads(str(curve_pickle))
+    return pickle.loads(bytes(curve_pickle[0]))
